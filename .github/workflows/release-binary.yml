@@ -36,7 +36,7 @@ jobs:
           
           mkdir -p artifacts
           
-          if [ "$GOOS" == "windows" ]; then
+          if [ "$GOOS" = "windows" ]; then
             go build -o cql-proxy.exe
             zip -vr cql-proxy-${GOOS}-${GOARCH}-${{ github.ref_name }}.zip cql-proxy.exe LICENSE
             sha256sum cql-proxy-${GOOS}-${GOARCH}-${{ github.ref_name }}.zip | cut -d ' ' -f 1 > cql-proxy-${GOOS}-${GOARCH}-${{ github.ref_name }}-sha256.txt
